@@ -18,7 +18,7 @@
 #define kNotificaiton_ColorChanged              @"kNotificaiton_ColorChanged"
 #define kNotification_FontChanged               @"kNotification_FontChanged"
 
-#define ENET_COOKIE  @"deviceId=5F7F81C3-B8D3-5BA3-AAB2-D25599CBB3BE%7C793F6423-0C45-4DB4-B719-82010F55973E; os=osx; usertrack=c+5+hVVQh8ajuyyLCsdtAg==; __remember_me=true; osver=Version%2010.10.5%20(Build%2014F27);"
+#define ENET_COOKIE  @"deviceId=5F7F81C3-B8D3-5BA3-AAB2-D25599CBB3BE%7C793F6423-0C45-4DB4-B719-82010F55973E; os=osx; usertrack=c+5+hVVQh8ajuyyLCsdtAg==; __remember_me=true;"
 
 #define ENET_UA @"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/600.8.9 (KHTML, like Gecko)"
 #endif
