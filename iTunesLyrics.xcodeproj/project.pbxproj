@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A8EC65231C1155430073A9F6 /* logo.icns in Resources */ = {isa = PBXBuildFile; fileRef = A8EC65221C1155430073A9F6 /* logo.icns */; };
 		BC3CD8D01BD1206400FA3E86 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3CD8CF1BD1206400FA3E86 /* AppDelegate.m */; };
 		BC3CD8D21BD1206400FA3E86 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3CD8D11BD1206400FA3E86 /* main.m */; };
 		BC3CD8D41BD1206500FA3E86 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC3CD8D31BD1206500FA3E86 /* Images.xcassets */; };
@@ -48,6 +49,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A8EC65221C1155430073A9F6 /* logo.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = logo.icns; sourceTree = "<group>"; };
 		BC3CD8C91BD1206400FA3E86 /* iTunesLyrics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTunesLyrics.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC3CD8CD1BD1206400FA3E86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BC3CD8CE1BD1206400FA3E86 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -263,6 +265,7 @@
 		BC3CD94E1BD3A98500FA3E86 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				A8EC65221C1155430073A9F6 /* logo.icns */,
 				BC3CD95C1BD3B3DB00FA3E86 /* star.png */,
 				BC3CD94F1BD3A98500FA3E86 /* transparent.png */,
 				BC3CD9501BD3A98500FA3E86 /* transparent@2x.png */,
@@ -388,6 +391,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC3CD9511BD3A98500FA3E86 /* transparent.png in Resources */,
+				A8EC65231C1155430073A9F6 /* logo.icns in Resources */,
 				BC3CD95D1BD3B3DB00FA3E86 /* star.png in Resources */,
 				BC3CD9521BD3A98500FA3E86 /* transparent@2x.png in Resources */,
 				BC3CD8D41BD1206500FA3E86 /* Images.xcassets in Resources */,
@@ -615,6 +619,7 @@
 				BC3CD8E81BD1206500FA3E86 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BC3CD8E91BD1206500FA3E86 /* Build configuration list for PBXNativeTarget "iTunesLyricsTests" */ = {
 			isa = XCConfigurationList;
@@ -623,6 +628,7 @@
 				BC3CD8EB1BD1206500FA3E86 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
