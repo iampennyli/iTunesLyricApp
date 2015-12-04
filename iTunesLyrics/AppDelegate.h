@@ -2,8 +2,8 @@
 //  AppDelegate.h
 //  iTunesLyrics
 //
-//  Created by 鹏 李 on 10/16/15.
-//  Copyright (c) 2015 Cocoamad. All rights reserved.
+//  Created by pennyli on 10/16/15.
+//  Copyright (c) 2015 penny.li. All rights reserved.
 //
 
 #import <Cocoa/Cocoa.h>
