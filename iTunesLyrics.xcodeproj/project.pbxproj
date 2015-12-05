@@ -36,6 +36,8 @@
 		BC3CD95B1BD3B1B600FA3E86 /* LyricDisplayWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3CD9591BD3B1B600FA3E86 /* LyricDisplayWindow.m */; };
 		BC3CD95D1BD3B3DB00FA3E86 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = BC3CD95C1BD3B3DB00FA3E86 /* star.png */; };
 		BC3CD9611BD3D49500FA3E86 /* AppDelegate+Preference.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3CD9601BD3D49500FA3E86 /* AppDelegate+Preference.m */; };
+		BCF3A72B1C12BEF1001F5BB3 /* SearchLyricWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF3A7291C12BEF1001F5BB3 /* SearchLyricWindowController.m */; };
+		BCF3A72C1C12BEF1001F5BB3 /* SearchLyricWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCF3A72A1C12BEF1001F5BB3 /* SearchLyricWindowController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +106,9 @@
 		BC3CD95C1BD3B3DB00FA3E86 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
 		BC3CD95F1BD3D49500FA3E86 /* AppDelegate+Preference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+Preference.h"; sourceTree = "<group>"; };
 		BC3CD9601BD3D49500FA3E86 /* AppDelegate+Preference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+Preference.m"; sourceTree = "<group>"; };
+		BCF3A7281C12BEF1001F5BB3 /* SearchLyricWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchLyricWindowController.h; sourceTree = "<group>"; };
+		BCF3A7291C12BEF1001F5BB3 /* SearchLyricWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchLyricWindowController.m; sourceTree = "<group>"; };
+		BCF3A72A1C12BEF1001F5BB3 /* SearchLyricWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchLyricWindowController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -276,9 +281,10 @@
 		BC3CD9531BD3B1B600FA3E86 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				BCF3A7271C12BE5F001F5BB3 /* Search */,
 				BC3CD95E1BD3D47F00FA3E86 /* Preference */,
 				BC3CD9541BD3B1B600FA3E86 /* StatusBar */,
-				BC3CD9571BD3B1B600FA3E86 /* Window */,
+				BC3CD9571BD3B1B600FA3E86 /* LyricWindow */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -292,12 +298,13 @@
 			path = StatusBar;
 			sourceTree = "<group>";
 		};
-		BC3CD9571BD3B1B600FA3E86 /* Window */ = {
+		BC3CD9571BD3B1B600FA3E86 /* LyricWindow */ = {
 			isa = PBXGroup;
 			children = (
 				BC3CD9581BD3B1B600FA3E86 /* LyricDisplayWindow.h */,
 				BC3CD9591BD3B1B600FA3E86 /* LyricDisplayWindow.m */,
 			);
+			name = LyricWindow;
 			path = Window;
 			sourceTree = "<group>";
 		};
@@ -308,6 +315,16 @@
 				BC3CD9601BD3D49500FA3E86 /* AppDelegate+Preference.m */,
 			);
 			path = Preference;
+			sourceTree = "<group>";
+		};
+		BCF3A7271C12BE5F001F5BB3 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				BCF3A7281C12BEF1001F5BB3 /* SearchLyricWindowController.h */,
+				BCF3A7291C12BEF1001F5BB3 /* SearchLyricWindowController.m */,
+				BCF3A72A1C12BEF1001F5BB3 /* SearchLyricWindowController.xib */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -396,6 +413,7 @@
 				BC3CD9521BD3A98500FA3E86 /* transparent@2x.png in Resources */,
 				BC3CD8D41BD1206500FA3E86 /* Images.xcassets in Resources */,
 				BC3CD8D71BD1206500FA3E86 /* MainMenu.xib in Resources */,
+				BCF3A72C1C12BEF1001F5BB3 /* SearchLyricWindowController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,6 +438,7 @@
 				BC3CD9341BD2967900FA3E86 /* ASIFormDataRequest.m in Sources */,
 				BC3CD9371BD2967900FA3E86 /* ASINetworkQueue.m in Sources */,
 				BC3CD9391BD2967900FA3E86 /* Reachability.m in Sources */,
+				BCF3A72B1C12BEF1001F5BB3 /* SearchLyricWindowController.m in Sources */,
 				BC3CD9321BD2967900FA3E86 /* ASIDataDecompressor.m in Sources */,
 				BC3CD9381BD2967900FA3E86 /* JSONKit.m in Sources */,
 				BC3CD9611BD3D49500FA3E86 /* AppDelegate+Preference.m in Sources */,

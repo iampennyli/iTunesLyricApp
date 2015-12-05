@@ -52,7 +52,11 @@
     if ([self.itunes playerState] == iTunesEPlSPlaying) {
         self.timer = [NSTimer scheduledTimerWithTimeInterval: .1 target: self selector: @selector(fetchProgress:) userInfo: nil repeats: YES];
         self.song = [self currentPlayingSong];
-        [self.lyricWindow setLyric: [NSString stringWithFormat: @"%@ - %@", self.song.name, self.song.artist]];
+        if (self.song) {
+            [self.lyricWindow setLyric: [NSString stringWithFormat: @"%@ - %@", self.song.name, self.song.artist]];
+        } else
+            [self.lyricWindow setLyric: @"没有检测到歌曲信息"];
+        
         [[iTunesLyricHelper shareHelper] fetchLyricWithSong: self.song];
     }
 }
@@ -80,16 +84,22 @@
 // get current playing song
 - (Song *)currentPlayingSong
 {
+    NSString *songName = [[self.itunes currentTrack] name];
+    if (songName.length == 0) {
+        return nil;
+    }
+    
     Song *song = [[Song alloc] init];
     song.artist = [self.itunes currentTrack].artist;
     song.album = [self.itunes currentTrack].album;
     song.duration = [self.itunes currentTrack].duration;
-    NSString *songName = [[self.itunes currentTrack] name];
     
     NSArray *songNames = [songName componentsSeparatedByString:@"("];
     if (songNames.count > 1) {
         song.name = songNames[0];
     } else song.name = songName;
+    
+    
     return song;
 }
 
@@ -105,8 +115,13 @@
         }
         
         if (![self.song isEqual: [self currentPlayingSong]]) {
+            
             self.song = [self currentPlayingSong];
-            [self.lyricWindow setLyric: [NSString stringWithFormat: @"%@ - %@", self.song.name, self.song.artist]];
+            if (self.song) {
+                [self.lyricWindow setLyric: [NSString stringWithFormat: @"%@ - %@", self.song.name, self.song.artist]];
+            } else
+                [self.lyricWindow setLyric: @"没有检测到歌曲信息"];
+            
             [[iTunesLyricHelper shareHelper] fetchLyricWithSong: self.song];
             
             if (![self.lyricWindow isVisible]) {
@@ -125,7 +140,7 @@
         [self analyzeLyric: song.lyrics];
     } else {
         [self.lyricDict removeAllObjects];
-         [self.lyricWindow setLyric: [NSString stringWithFormat: @"%@ - %@ - not fetched lyric...", self.song.name, self.song.artist]];
+         [self.lyricWindow setLyric: @"没有检测到歌词信息"];
     }
 }
 
