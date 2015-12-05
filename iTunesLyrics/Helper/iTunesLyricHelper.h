@@ -10,6 +10,8 @@
 #import "ASIHTTPRequest.h"
 #import "Song.h"
 
+typedef void (^FetchLyricListCompleteBlock)(NSArray *value);
+
 @interface iTunesLyricHelper : NSObject
 
 @property (nonatomic, strong)  NSMutableDictionary *requestsDict;
@@ -24,7 +26,7 @@
 /**
  根据歌曲名查询歌曲歌词列表
  */
-- (void)fetchLyricListWithName:(NSString *)songName;
+- (void)fetchLyricListWithName:(NSString *)songName completeBlock:(FetchLyricListCompleteBlock)block;
 
 /**
  根据歌曲（含有歌词id）获取歌词

@@ -39,11 +39,10 @@
         case kStatusSearchLyricTag: {
             [NSApp activateIgnoringOtherApps:YES];
             if (self.searchViewController == nil) {
-                self.searchViewController = [[SearchLyricWindowController alloc] initWithWindowNibName: @"SearchLyricWindowController"];
+                self.searchViewController = [[SearchLyricWindowController alloc] initWithWindowNibName: @"SearchLyricWindowController" Song: self.song];
                 [self.searchViewController.window makeKeyAndOrderFront: nil];
-                
-                
             } else {
+                self.searchViewController.song = self.song;
                 [self.searchViewController.window makeKeyAndOrderFront: nil];
             }
         }

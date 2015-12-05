@@ -16,15 +16,56 @@
 
 @implementation SearchLyricWindowController
 
+- (instancetype)initWithWindowNibName:(NSString *)windowNibName Song:(Song *)song
+{
+    if (self = [super initWithWindowNibName: windowNibName]) {
+        _song = song;
+    }
+    return self;
+}
+
+- (void)setSong:(Song *)song
+{
+    if (![song.name isEqualToString: self.song.name]) {
+        _song = song;
+        _songs = nil;
+        [self.tableView reloadData];
+    }
+    [self updateCurrentPlayingSongInfoUI];
+}
+
 - (void)windowDidLoad {
     [super windowDidLoad];
     
     // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
+    self.indicator = [[NSProgressIndicator alloc] initWithFrame: NSMakeRect(0, 0, 20, 20)];
+    self.indicator.style = NSProgressIndicatorSpinningStyle;
+    self.indicator.frame = CGRectMake((CGRectGetWidth(self.tableView.frame) - 20) * .5, (CGRectGetHeight(self.tableView.frame) - 20) * .5, 20, 20);
+    self.indicator.autoresizingMask = NSViewMinXMargin | NSViewMaxXMargin | NSViewMinYMargin | NSViewMaxYMargin;
+    [self.tableView addSubview: self.indicator];
+    self.indicator.hidden = YES;
     
-    [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(lyricListFetchFinished:) name: iTunesLyricListFetchFinishedNotification object: nil];
+    [self updateCurrentPlayingSongInfoUI];
     
     [self.tableView setDoubleAction: @selector(importLyric:)];
     
+}
+
+- (void)updateCurrentPlayingSongInfoUI
+{
+    if (self.song.name.length) {
+        self.searchField.stringValue = self.song.name;
+        self.songNameLabel.stringValue = self.song.name;
+    }
+    if (self.song.artist.length) {
+        self.singerNameLabel.stringValue = self.song.artist;
+    }
+    
+    if (self.song.album.length) {
+        self.albumLabel.stringValue = self.song.album;
+    }
+    
+    self.durationLabel.stringValue = [NSString stringWithFormat:@"%.2ld:%.2ld",self.song.duration / 60,self.song.duration % 60];
 }
 
 - (BOOL)control:(NSControl *)control textView:(NSTextView *)textView doCommandBySelector:(SEL)commandSelector;
@@ -32,15 +73,27 @@
     if ([@"insertNewline:" isEqualToString: NSStringFromSelector(commandSelector)]) {
         NSString *searchSongName = self.searchField.stringValue;
         if (searchSongName.length != 0) {
-            [[iTunesLyricHelper shareHelper] fetchLyricListWithName: searchSongName];
+            
+            [self lyricListFetchBegin];
+            [[iTunesLyricHelper shareHelper] fetchLyricListWithName: searchSongName completeBlock:^(NSArray *songs) {
+                [self lyricListFetchFinished: songs];
+            }];
         }
     }
     return NO;
 }
 
-- (void)lyricListFetchFinished:(NSNotification *)n
+- (void)lyricListFetchBegin
 {
-    NSArray *songs = [n object];
+    self.indicator.hidden = NO;
+    [self.indicator startAnimation: nil];
+}
+
+- (void)lyricListFetchFinished:(NSArray *)songs
+{
+    [self.indicator stopAnimation: nil];
+    self.indicator.hidden = YES;
+    
     if (songs.count) {
         _songs = songs;
         [self.tableView reloadData];

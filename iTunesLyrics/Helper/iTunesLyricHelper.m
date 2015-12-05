@@ -108,7 +108,9 @@
     [request startAsynchronous];
 }
 
-- (void)fetchLyricListWithName:(NSString *)songName
+
+
+- (void)fetchLyricListWithName:(NSString *)songName completeBlock:(FetchLyricListCompleteBlock)block
 {
     NSString *key = [NSString stringWithFormat: @"fetchLyricWithSong-%@", songName];
     if ([_requestsDict objectForKey: key]) {
@@ -157,12 +159,16 @@
             return song1.score < song2.score;
         }];
         
-        [[NSNotificationCenter defaultCenter] postNotificationName: iTunesLyricListFetchFinishedNotification object: referenceSongs];
+        if (block) {
+            block(referenceSongs);
+        }
         
     }];
     
     [request setFailedBlock:^{
-         [[NSNotificationCenter defaultCenter] postNotificationName: iTunesLyricListFetchFinishedNotification object: nil];
+        if (block) {
+            block(nil);
+        }
         [helper.requestsDict removeObjectForKey: key];
     }];
     
