@@ -7,7 +7,7 @@
         <customObject id="-2" userLabel="File's Owner" customClass="SearchLyricWindowController">
             <connections>
                 <outlet property="searchField" destination="Gb0-ta-MHt" id="Uv5-Xj-ddc"/>
-                <outlet property="tableView" destination="ZZG-4v-11f" id="fMl-me-iLP"/>
+                <outlet property="tableView" destination="FAQ-NM-CXY" id="1q1-Wc-o4h"/>
                 <outlet property="window" destination="okE-L2-YbS" id="Nv5-O4-328"/>
             </connections>
         </customObject>
@@ -32,7 +32,18 @@
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </searchFieldCell>
+                                <connections>
+                                    <outlet property="delegate" destination="-2" id="BUv-tm-Fs9"/>
+                                </connections>
                             </searchField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Zs-Ge-32k">
+                                <rect key="frame" x="20" y="20" width="43" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="歌曲：" id="PIl-jb-fGu">
+                                    <font key="font" size="13" name="STHeitiSC-Light"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Gb0-ta-MHt" secondAttribute="trailing" constant="40" id="0vO-6S-7ZB"/>
@@ -48,13 +59,13 @@
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="LiA-5g-N0d" viewBased="YES" id="FAQ-NM-CXY">
-                                    <rect key="frame" x="0.0" y="0.0" width="531" height="237"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="531" height="0.0"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <size key="intercellSpacing" width="3" height="2"/>
                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                     <tableColumns>
-                                        <tableColumn width="116" minWidth="100" maxWidth="2000" id="nhj-Wd-QrT">
+                                        <tableColumn identifier="name" width="116" minWidth="100" maxWidth="2000" id="nhj-Wd-QrT">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="歌曲名">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -91,7 +102,7 @@
                                                 </tableCellView>
                                             </prototypeCellViews>
                                         </tableColumn>
-                                        <tableColumn width="100" minWidth="100" maxWidth="2000" id="2I1-4K-N3N">
+                                        <tableColumn identifier="singer" width="100" minWidth="100" maxWidth="2000" id="2I1-4K-N3N">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="歌手">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -130,7 +141,7 @@
                                                 </tableCellView>
                                             </prototypeCellViews>
                                         </tableColumn>
-                                        <tableColumn width="100" minWidth="100" maxWidth="2000" id="jxg-fz-Z8W">
+                                        <tableColumn identifier="album" width="100" minWidth="100" maxWidth="2000" id="jxg-fz-Z8W">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="专辑">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -167,7 +178,7 @@
                                                 </tableCellView>
                                             </prototypeCellViews>
                                         </tableColumn>
-                                        <tableColumn width="100" minWidth="100" maxWidth="100" id="eOy-Aw-poz">
+                                        <tableColumn identifier="duration" width="100" minWidth="100" maxWidth="100" id="eOy-Aw-poz">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="时长">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -204,7 +215,7 @@
                                                 </tableCellView>
                                             </prototypeCellViews>
                                         </tableColumn>
-                                        <tableColumn width="100" minWidth="100" maxWidth="100" id="3CU-j6-ILr">
+                                        <tableColumn identifier="hot" width="100" minWidth="100" maxWidth="100" id="3CU-j6-ILr">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="热度">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -242,6 +253,10 @@
                                             </prototypeCellViews>
                                         </tableColumn>
                                     </tableColumns>
+                                    <connections>
+                                        <outlet property="dataSource" destination="-2" id="prz-3n-J6F"/>
+                                        <outlet property="delegate" destination="-2" id="6eB-uv-lbA"/>
+                                    </connections>
                                 </tableView>
                             </subviews>
                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -277,7 +292,7 @@
             <connections>
                 <outlet property="delegate" destination="-2" id="JNr-iU-YC3"/>
             </connections>
-            <point key="canvasLocation" x="493.5" y="250.5"/>
+            <point key="canvasLocation" x="441.5" y="245.5"/>
         </window>
     </objects>
 </document>

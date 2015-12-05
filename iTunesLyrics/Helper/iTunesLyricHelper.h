@@ -16,5 +16,23 @@
 
 + (instancetype)shareHelper;
 
+/**
+ 根据iTunes歌曲信息智能获取歌词
+ */
+- (void)smartFetchLyricWithSong:(Song *)song;
+
+/**
+ 根据歌曲名查询歌曲歌词列表
+ */
+- (void)fetchLyricListWithName:(NSString *)songName;
+
+/**
+ 根据歌曲（含有歌词id）获取歌词
+ */
 - (void)fetchLyricWithSong:(Song *)song;
+
+/**
+  保存歌词到本地
+ */
+- (void)saveSongLyricToLocal:(Song *)song;
 @end

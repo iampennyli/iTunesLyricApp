@@ -8,9 +8,10 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface SearchLyricWindowController : NSWindowController
-
+@interface SearchLyricWindowController : NSWindowController <NSTableViewDataSource, NSTableViewDelegate, NSSearchFieldDelegate> {
+    NSArray *_songs;
+}
+@property (weak) IBOutlet NSTableView *tableView;
 @property (weak) IBOutlet NSSearchField *searchField;
-@property (weak) IBOutlet NSScrollView *tableView;
 
 @end

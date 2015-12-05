@@ -8,6 +8,16 @@
 
 #import <Cocoa/Cocoa.h>
 #import "Utils.h"
+
+typedef NS_ENUM(NSUInteger, StatusBarTag) {
+    kStatusShowLyricTag = 0,
+    kStatusSearchLyricTag,
+    kStatusPreferenceTag,
+    kStatusFeedbackTag,
+    kStatusAboutTag,
+    kStatusQuitTag
+};
+
 @interface StatusBarView : NSView <NSMenuDelegate, NSWindowDelegate> {
     NSStatusItem    *statusItem;
     NSMenu          *statusMenu;

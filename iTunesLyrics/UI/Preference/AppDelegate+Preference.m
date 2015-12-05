@@ -8,6 +8,8 @@
 
 #import "AppDelegate+Preference.h"
 #import "Marco.h"
+#import "StatusBarView.h"
+#import "SearchLyricWindowController.h"
 
 @implementation AppDelegate(Preference)
 
@@ -28,8 +30,36 @@
 
 - (void)preference:(NSNotification *)n
 {
-    [NSApp activateIgnoringOtherApps:YES];
-    [self.prefWindow makeKeyAndOrderFront: nil];
+    switch ([[n object] integerValue]) {
+        case kStatusPreferenceTag: {
+            [NSApp activateIgnoringOtherApps:YES];
+            [self.prefWindow makeKeyAndOrderFront: nil];
+        }
+            break;
+        case kStatusSearchLyricTag: {
+            [NSApp activateIgnoringOtherApps:YES];
+            if (self.searchViewController == nil) {
+                self.searchViewController = [[SearchLyricWindowController alloc] initWithWindowNibName: @"SearchLyricWindowController"];
+                [self.searchViewController.window makeKeyAndOrderFront: nil];
+                
+                
+            } else {
+                [self.searchViewController.window makeKeyAndOrderFront: nil];
+            }
+        }
+            break;
+        case kStatusFeedbackTag: {
+            
+        }
+            break;
+        case kStatusAboutTag: {
+            
+        }
+            break;
+        default:
+            break;
+    }
+
 }
 
 - (void)hideLyricPanel:(NSNotification *)n

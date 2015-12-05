@@ -62,14 +62,21 @@
     NSMenuItem *newItem = nil;
     
     newItem = [[NSMenuItem allocWithZone: [NSMenu menuZone]] initWithTitle: @"Hide Lyric" action: @selector(hideLyric:) keyEquivalent: @""];
-    newItem.tag = 0;
+    newItem.tag = kStatusShowLyricTag;
 
     [newItem setTarget: self];
     [newItem setEnabled: YES];
     [statusMenu addItem: newItem];
     
+    newItem = [[NSMenuItem allocWithZone: [NSMenu menuZone]] initWithTitle: @"Search..." action: @selector(showPreference:) keyEquivalent: @""];
+    newItem.tag = kStatusSearchLyricTag;
+    
+    [newItem setTarget: self];
+    [newItem setEnabled: YES];
+    [statusMenu addItem: newItem];
+    
     newItem = [[NSMenuItem allocWithZone: [NSMenu menuZone]] initWithTitle: @"Preferences..." action: @selector(showPreference:) keyEquivalent: @""];
-    newItem.tag = 1;
+    newItem.tag = kStatusPreferenceTag;
     [newItem setTarget: self];
     [newItem setEnabled: YES];
     [statusMenu addItem: newItem];
@@ -79,13 +86,13 @@
     newItem = [[NSMenuItem allocWithZone: [NSMenu menuZone]] initWithTitle: @"Feedback..." action: @selector(showPreference:) keyEquivalent: @""];
     [newItem setTarget: self];
     [newItem setEnabled: YES];
-    newItem.tag = 2;
+    newItem.tag = kStatusFeedbackTag;
     [statusMenu addItem: newItem];
     
     newItem = [[NSMenuItem allocWithZone: [NSMenu menuZone]] initWithTitle: @"About..." action: @selector(showPreference:) keyEquivalent: @""];
     [newItem setTarget: self];
     [newItem setEnabled: YES];
-    newItem.tag = 3;
+    newItem.tag = kStatusAboutTag;
     [statusMenu addItem: newItem];
     
     [statusMenu addItem: [NSMenuItem separatorItem]];
@@ -93,6 +100,7 @@
     newItem = [[NSMenuItem allocWithZone: [NSMenu menuZone]] initWithTitle: @"Quit" action: @selector(quit) keyEquivalent: @""];
     [newItem setTarget: self];
     [newItem setEnabled: YES];
+    newItem.tag = kStatusQuitTag;
     [statusMenu addItem: newItem];
     
 }

@@ -33,11 +33,11 @@
 		BC3CD9511BD3A98500FA3E86 /* transparent.png in Resources */ = {isa = PBXBuildFile; fileRef = BC3CD94F1BD3A98500FA3E86 /* transparent.png */; };
 		BC3CD9521BD3A98500FA3E86 /* transparent@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BC3CD9501BD3A98500FA3E86 /* transparent@2x.png */; };
 		BC3CD95A1BD3B1B600FA3E86 /* StatusBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3CD9561BD3B1B600FA3E86 /* StatusBarView.m */; };
-		BC3CD95B1BD3B1B600FA3E86 /* LyricDisplayWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3CD9591BD3B1B600FA3E86 /* LyricDisplayWindow.m */; };
 		BC3CD95D1BD3B3DB00FA3E86 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = BC3CD95C1BD3B3DB00FA3E86 /* star.png */; };
 		BC3CD9611BD3D49500FA3E86 /* AppDelegate+Preference.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3CD9601BD3D49500FA3E86 /* AppDelegate+Preference.m */; };
 		BCF3A72B1C12BEF1001F5BB3 /* SearchLyricWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF3A7291C12BEF1001F5BB3 /* SearchLyricWindowController.m */; };
 		BCF3A72C1C12BEF1001F5BB3 /* SearchLyricWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCF3A72A1C12BEF1001F5BB3 /* SearchLyricWindowController.xib */; };
+		BCF3A7361C12C78B001F5BB3 /* LyricDisplayWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF3A7351C12C78B001F5BB3 /* LyricDisplayWindow.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,14 +101,14 @@
 		BC3CD9501BD3A98500FA3E86 /* transparent@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "transparent@2x.png"; sourceTree = "<group>"; };
 		BC3CD9551BD3B1B600FA3E86 /* StatusBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusBarView.h; sourceTree = "<group>"; };
 		BC3CD9561BD3B1B600FA3E86 /* StatusBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusBarView.m; sourceTree = "<group>"; };
-		BC3CD9581BD3B1B600FA3E86 /* LyricDisplayWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LyricDisplayWindow.h; sourceTree = "<group>"; };
-		BC3CD9591BD3B1B600FA3E86 /* LyricDisplayWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LyricDisplayWindow.m; sourceTree = "<group>"; };
 		BC3CD95C1BD3B3DB00FA3E86 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
 		BC3CD95F1BD3D49500FA3E86 /* AppDelegate+Preference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+Preference.h"; sourceTree = "<group>"; };
 		BC3CD9601BD3D49500FA3E86 /* AppDelegate+Preference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+Preference.m"; sourceTree = "<group>"; };
 		BCF3A7281C12BEF1001F5BB3 /* SearchLyricWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchLyricWindowController.h; sourceTree = "<group>"; };
 		BCF3A7291C12BEF1001F5BB3 /* SearchLyricWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchLyricWindowController.m; sourceTree = "<group>"; };
 		BCF3A72A1C12BEF1001F5BB3 /* SearchLyricWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchLyricWindowController.xib; sourceTree = "<group>"; };
+		BCF3A7341C12C78B001F5BB3 /* LyricDisplayWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LyricDisplayWindow.h; sourceTree = "<group>"; };
+		BCF3A7351C12C78B001F5BB3 /* LyricDisplayWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LyricDisplayWindow.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -281,10 +281,10 @@
 		BC3CD9531BD3B1B600FA3E86 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				BCF3A7331C12C78B001F5BB3 /* LyricWindow */,
 				BCF3A7271C12BE5F001F5BB3 /* Search */,
 				BC3CD95E1BD3D47F00FA3E86 /* Preference */,
 				BC3CD9541BD3B1B600FA3E86 /* StatusBar */,
-				BC3CD9571BD3B1B600FA3E86 /* LyricWindow */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -296,16 +296,6 @@
 				BC3CD9561BD3B1B600FA3E86 /* StatusBarView.m */,
 			);
 			path = StatusBar;
-			sourceTree = "<group>";
-		};
-		BC3CD9571BD3B1B600FA3E86 /* LyricWindow */ = {
-			isa = PBXGroup;
-			children = (
-				BC3CD9581BD3B1B600FA3E86 /* LyricDisplayWindow.h */,
-				BC3CD9591BD3B1B600FA3E86 /* LyricDisplayWindow.m */,
-			);
-			name = LyricWindow;
-			path = Window;
 			sourceTree = "<group>";
 		};
 		BC3CD95E1BD3D47F00FA3E86 /* Preference */ = {
@@ -325,6 +315,15 @@
 				BCF3A72A1C12BEF1001F5BB3 /* SearchLyricWindowController.xib */,
 			);
 			path = Search;
+			sourceTree = "<group>";
+		};
+		BCF3A7331C12C78B001F5BB3 /* LyricWindow */ = {
+			isa = PBXGroup;
+			children = (
+				BCF3A7341C12C78B001F5BB3 /* LyricDisplayWindow.h */,
+				BCF3A7351C12C78B001F5BB3 /* LyricDisplayWindow.m */,
+			);
+			path = LyricWindow;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -431,9 +430,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BC3CD95B1BD3B1B600FA3E86 /* LyricDisplayWindow.m in Sources */,
 				BC3CD9411BD2994600FA3E86 /* Song.m in Sources */,
 				BC3CD9311BD2967900FA3E86 /* ASIDataCompressor.m in Sources */,
+				BCF3A7361C12C78B001F5BB3 /* LyricDisplayWindow.m in Sources */,
 				BC3CD94D1BD3A88B00FA3E86 /* Utils.m in Sources */,
 				BC3CD9341BD2967900FA3E86 /* ASIFormDataRequest.m in Sources */,
 				BC3CD9371BD2967900FA3E86 /* ASINetworkQueue.m in Sources */,

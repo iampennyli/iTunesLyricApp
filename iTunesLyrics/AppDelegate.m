@@ -22,8 +22,6 @@
 @property (nonatomic, strong) iTunesApplication *itunes;
 @property (nonatomic, strong) NSTimer *timer;
 @property (nonatomic, strong) NSMutableDictionary *lyricDict;
-
-@property (nonatomic, strong) Song *song;
 @end
 
 @implementation AppDelegate
@@ -41,12 +39,17 @@
     self.prefWindow.appearance = [NSAppearance appearanceNamed: NSAppearanceNameVibrantDark];
     
     // set itunes instance
-    self.itunes = [SBApplication applicationWithBundleIdentifier: @"com.apple.iTunes"];
+    NSArray *apps = [[NSWorkspace sharedWorkspace] runningApplications];
+    apps = [apps objectsAtIndexes:[apps indexesOfObjectsPassingTest:^BOOL(NSRunningApplication* obj, NSUInteger idx, BOOL *stop) {
+        if ([obj.bundleIdentifier isEqualToString: @"com.apple.iTunes"]) {
+            *stop = YES;
+            return YES;
+        }
+        return NO;
+    }]];
     
-//    NSArray *apps = [[NSWorkspace sharedWorkspace] runningApplications];
-//    apps = [apps objectsAtIndexes:[apps indexesOfObjectsPassingTest:^BOOL(NSRunningApplication* obj, NSUInteger idx, BOOL *stop) {
-//        return [self isLegal: obj];
-//    }]];
+    if (apps.count == 1)
+        self.itunes = [SBApplication applicationWithBundleIdentifier: @"com.apple.iTunes"];
     
     // init itunes playing state
     if ([self.itunes playerState] == iTunesEPlSPlaying) {
@@ -57,7 +60,7 @@
         } else
             [self.lyricWindow setLyric: @"没有检测到歌曲信息"];
         
-        [[iTunesLyricHelper shareHelper] fetchLyricWithSong: self.song];
+        [[iTunesLyricHelper shareHelper] smartFetchLyricWithSong: self.song];
     }
 }
 
@@ -75,7 +78,7 @@
     // set notificaiton
     NSDistributedNotificationCenter *dnc = [NSDistributedNotificationCenter defaultCenter];
     [dnc addObserver:self selector:@selector(updateTrackInfo:) name: @"com.apple.iTunes.playerInfo" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(iTunesLyricFetchFinished:) name: iTunesLyricFetchFinishedNotification object: nil];
+    [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(iTunesLyricFetchFinished:) name: iTunesSongLyricFetchFinishedNotification object: nil];
     [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(preference:) name:kNotification_ShowWindow object: nil];
     [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(hideLyricPanel:) name:kNotification_HideLyric object: nil];
 }
@@ -97,8 +100,8 @@
     NSArray *songNames = [songName componentsSeparatedByString:@"("];
     if (songNames.count > 1) {
         song.name = songNames[0];
-    } else song.name = songName;
-    
+    } else
+        song.name = songName;
     
     return song;
 }
@@ -122,7 +125,7 @@
             } else
                 [self.lyricWindow setLyric: @"没有检测到歌曲信息"];
             
-            [[iTunesLyricHelper shareHelper] fetchLyricWithSong: self.song];
+            [[iTunesLyricHelper shareHelper] smartFetchLyricWithSong: self.song];
             
             if (![self.lyricWindow isVisible]) {
                 [self.lyricWindow setLyric: @""];
@@ -136,6 +139,15 @@
 - (void)iTunesLyricFetchFinished:(NSNotification *)n
 {
     Song *song = [n object];
+    
+    if (song.lyrics) {
+        self.song.lyrics = song.lyrics;
+        self.song.lyricId = song.lyricId;
+        if (![song.name isEqualToString: self.song.name]) {
+            [[iTunesLyricHelper shareHelper] saveSongLyricToLocal: self.song];
+        }
+    }
+    
     if (song.lyrics) {
         [self analyzeLyric: song.lyrics];
     } else {
