@@ -14,7 +14,7 @@
           ]]>
         </description>
         <pubDate>Sat, 26 Jul 2014 15:20:11 +0000</pubDate>
-        <enclosure url="" sparkle:version="2.0" length="$INSERT_ARCHIVE_LENGTH" type="application/octet-stream" sparkle:dsaSignature="$INSERT_DSA_SIGNATURE" />
+        <enclosure url="https://github.com/iampennyli/iTunesLyricApp/blob/master/Release/iTunesLyrics2_0.zip" sparkle:version="2.0" length="$INSERT_ARCHIVE_LENGTH" type="application/octet-stream" sparkle:dsaSignature="$INSERT_DSA_SIGNATURE" />
       </item>
   </channel>
 </rss>
