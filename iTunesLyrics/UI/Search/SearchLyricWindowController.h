@@ -9,9 +9,18 @@
 #import <Cocoa/Cocoa.h>
 #import "Song.h"
 
+@protocol SearchLyricDelegate <NSObject>
+
+- (void)searchLyricDidImportLyricToSong:(Song *)song;
+
+@end
+
 @interface SearchLyricWindowController : NSWindowController <NSTableViewDataSource, NSTableViewDelegate, NSSearchFieldDelegate> {
     NSArray *_songs;
 }
+
+@property (nonatomic, weak) id <SearchLyricDelegate> searchLyricDelegate;
+
 @property (weak) IBOutlet NSTableView *tableView;
 @property (weak) IBOutlet NSSearchField *searchField;
 

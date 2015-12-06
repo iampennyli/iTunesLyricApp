@@ -11,6 +11,7 @@
 #import "Song.h"
 
 typedef void (^FetchLyricListCompleteBlock)(NSArray *value);
+typedef void (^FetchLyricCompleteBlock)(Song *song);
 
 @interface iTunesLyricHelper : NSObject
 
@@ -21,7 +22,7 @@ typedef void (^FetchLyricListCompleteBlock)(NSArray *value);
 /**
  根据iTunes歌曲信息智能获取歌词
  */
-- (void)smartFetchLyricWithSong:(Song *)song;
+- (void)smartFetchLyricWithSong:(Song *)song completeBlock:(FetchLyricCompleteBlock)block;
 
 /**
  根据歌曲名查询歌曲歌词列表
@@ -31,7 +32,7 @@ typedef void (^FetchLyricListCompleteBlock)(NSArray *value);
 /**
  根据歌曲（含有歌词id）获取歌词
  */
-- (void)fetchLyricWithSong:(Song *)song;
+- (void)fetchLyricWithSong:(Song *)song completeBlock:(FetchLyricCompleteBlock)block;;
 
 /**
   保存歌词到本地

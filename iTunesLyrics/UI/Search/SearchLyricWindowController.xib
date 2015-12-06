@@ -17,12 +17,12 @@
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" animationBehavior="default" id="okE-L2-YbS">
+        <window title="搜索歌词" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" animationBehavior="default" id="okE-L2-YbS">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="109" y="131" width="679" height="463"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1280" height="777"/>
-            <view key="contentView" id="yrn-zs-1En">
+            <view key="contentView" id="yrn-zs-1En" customClass="NSVisualEffectView">
                 <rect key="frame" x="0.0" y="0.0" width="679" height="463"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
@@ -31,7 +31,7 @@
                         <subviews>
                             <searchField wantsLayer="YES" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Gb0-ta-MHt">
                                 <rect key="frame" x="40" y="56" width="599" height="22"/>
-                                <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" usesSingleLineMode="YES" bezelStyle="round" id="xNq-d0-Z56">
+                                <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" placeholderString="输入歌曲名" usesSingleLineMode="YES" bezelStyle="round" id="xNq-d0-Z56">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -135,7 +135,7 @@
                     </customView>
                     <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZZG-4v-11f">
                         <rect key="frame" x="0.0" y="0.0" width="679" height="372"/>
-                        <clipView key="contentView" id="dBc-2c-rh0">
+                        <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="dBc-2c-rh0">
                             <rect key="frame" x="0.0" y="17" width="679" height="355"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
@@ -143,7 +143,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="679" height="355"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <size key="intercellSpacing" width="3" height="2"/>
-                                    <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" white="1" alpha="0.0" colorSpace="deviceWhite"/>
                                     <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                     <tableColumns>
                                         <tableColumn identifier="name" width="116" minWidth="100" maxWidth="2000" id="nhj-Wd-QrT">
@@ -340,7 +340,7 @@
                                     </connections>
                                 </tableView>
                             </subviews>
-                            <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" white="1" alpha="0.0" colorSpace="deviceWhite"/>
                         </clipView>
                         <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="YUb-YL-Hec">
                             <rect key="frame" x="0.0" y="238" width="487" height="16"/>

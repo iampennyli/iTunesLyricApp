@@ -14,6 +14,7 @@
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate">
             <connections>
                 <outlet property="prefWindow" destination="xTd-DK-chs" id="NV1-8P-VpB"/>
+                <outlet property="updater" destination="Jd1-2G-iYt" id="sQQ-jd-rOI"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
             </connections>
         </customObject>
@@ -688,8 +689,8 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="voI-ur-P5N">
-                        <rect key="frame" x="121" y="41" width="74" height="18"/>
-                        <buttonCell key="cell" type="check" title="开机启动" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="hDi-jA-6cF">
+                        <rect key="frame" x="121" y="41" width="112" height="18"/>
+                        <buttonCell key="cell" type="check" title="跟随iTunes启动" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="hDi-jA-6cF">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                             <font key="font" size="13" name="STHeitiSC-Light"/>
                         </buttonCell>
@@ -738,5 +739,6 @@
             <point key="canvasLocation" x="-168.5" y="136"/>
         </window>
         <userDefaultsController representsSharedInstance="YES" id="q3o-Rb-AxU"/>
+        <customObject id="Jd1-2G-iYt" customClass="SUUpdater"/>
     </objects>
 </document>

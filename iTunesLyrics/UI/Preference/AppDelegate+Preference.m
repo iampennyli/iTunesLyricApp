@@ -40,6 +40,7 @@
             [NSApp activateIgnoringOtherApps:YES];
             if (self.searchViewController == nil) {
                 self.searchViewController = [[SearchLyricWindowController alloc] initWithWindowNibName: @"SearchLyricWindowController" Song: self.song];
+                self.searchViewController.searchLyricDelegate = self;
                 [self.searchViewController.window makeKeyAndOrderFront: nil];
             } else {
                 self.searchViewController.song = self.song;
@@ -53,6 +54,10 @@
             break;
         case kStatusAboutTag: {
             
+        }
+            break;
+        case kStatusCheckUpdateTag: {
+            [self.updater checkForUpdates: nil];
         }
             break;
         default:

@@ -57,10 +57,13 @@
         self.song = [self currentPlayingSong];
         if (self.song) {
             [self.lyricWindow setLyric: [NSString stringWithFormat: @"%@ - %@", self.song.name, self.song.artist]];
+            [[iTunesLyricHelper shareHelper] smartFetchLyricWithSong: self.song completeBlock:^(Song *song) {
+                [self iTunesLyricFetchFinished: song];
+            }];
         } else
             [self.lyricWindow setLyric: @"没有检测到歌曲信息"];
         
-        [[iTunesLyricHelper shareHelper] smartFetchLyricWithSong: self.song];
+        
     }
 }
 
@@ -78,7 +81,7 @@
     // set notificaiton
     NSDistributedNotificationCenter *dnc = [NSDistributedNotificationCenter defaultCenter];
     [dnc addObserver:self selector:@selector(updateTrackInfo:) name: @"com.apple.iTunes.playerInfo" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(iTunesLyricFetchFinished:) name: iTunesSongLyricFetchFinishedNotification object: nil];
+    
     [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(preference:) name:kNotification_ShowWindow object: nil];
     [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(hideLyricPanel:) name:kNotification_HideLyric object: nil];
 }
@@ -125,7 +128,9 @@
             } else
                 [self.lyricWindow setLyric: @"没有检测到歌曲信息"];
             
-            [[iTunesLyricHelper shareHelper] smartFetchLyricWithSong: self.song];
+            [[iTunesLyricHelper shareHelper] smartFetchLyricWithSong: self.song completeBlock:^(Song *song) {
+                [self iTunesLyricFetchFinished: song];
+            }];
             
             if (![self.lyricWindow isVisible]) {
                 [self.lyricWindow setLyric: @""];
@@ -136,10 +141,8 @@
 }
 
 // lyric fetch finished notficaiton
-- (void)iTunesLyricFetchFinished:(NSNotification *)n
+- (void)iTunesLyricFetchFinished:(Song *)song
 {
-    Song *song = [n object];
-    
     if (song.lyrics) {
         self.song.lyrics = song.lyrics;
         self.song.lyricId = song.lyricId;
@@ -154,6 +157,11 @@
         [self.lyricDict removeAllObjects];
          [self.lyricWindow setLyric: @"没有检测到歌词信息"];
     }
+}
+
+- (void)searchLyricDidImportLyricToSong:(Song *)song
+{
+    [self iTunesLyricFetchFinished: song];
 }
 
 // song playing timer call back

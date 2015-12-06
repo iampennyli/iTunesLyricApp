@@ -34,10 +34,10 @@
     return self;
 }
 
-- (void)smartFetchLyricWithSong:(Song *)song;
+- (void)smartFetchLyricWithSong:(Song *)song completeBlock:(FetchLyricCompleteBlock)block;
 {
     if ([self readSongLyricFromLocal: song]) {
-        [[NSNotificationCenter defaultCenter] postNotificationName: iTunesSongLyricFetchFinishedNotification object: song];
+        block(song);
         return;
     }
     NSString *key = [NSString stringWithFormat: @"fetchLyricWithSong-%@-%ld", song.name, (long)song.duration];
@@ -94,9 +94,11 @@
         }
         
         if (song.lyricId) {
-            [helper fetchLyricWithSong: song];
+            [helper fetchLyricWithSong: song completeBlock:^(Song *song) {
+                block(song);
+            }];
         } else {
-            [[NSNotificationCenter defaultCenter] postNotificationName: iTunesSongLyricFetchFinishedNotification object: song];
+            block(nil);
         }
         [helper.requestsDict removeObjectForKey: key];
     }];
@@ -175,7 +177,7 @@
     [request startAsynchronous];
 }
 
-- (void)fetchLyricWithSong:(Song *)song
+- (void)fetchLyricWithSong:(Song *)song completeBlock:(FetchLyricCompleteBlock)block
 {
     NSString *url = [NSString stringWithFormat: @"%@&id=%ld", FETCH_SONG_LYRIC_URL, song.lyricId];
     __weak ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL: [NSURL URLWithString: url]];
@@ -193,17 +195,20 @@
                 song.lyrics = lyric;
                 NSLog(@"%@-%@,找到正确的歌词信息", song.name, song.artist);
                 [self saveSongLyricToLocal: song];
+                block(song);
             } else {
                 NSLog(@"%@-%@,没有找到正确的歌词信息", song.name, song.artist);
+                block(nil);
             }
         } else {
             NSLog(@"_fetchLyricWithSong err code %ld, reason: %@", [obj[@"code"] integerValue], obj);
+            block(nil);
         }
-        [[NSNotificationCenter defaultCenter] postNotificationName: iTunesSongLyricFetchFinishedNotification object: song];
+        
     };
     [request setFailedBlock:^{
         NSLog(@"fetch lyric with id error");
-        [[NSNotificationCenter defaultCenter] postNotificationName: iTunesSongLyricFetchFinishedNotification object: song];
+        block(nil);
         [helper.requestsDict removeObjectForKey: key];
     }];
     

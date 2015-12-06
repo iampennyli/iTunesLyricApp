@@ -10,8 +10,10 @@
 #import "LyricDisplayWindow.h"
 #import "SearchLyricWindowController.h"
 #import "Song.h"
+#import <Sparkle/Sparkle.h>
 
-@interface AppDelegate : NSObject <NSApplicationDelegate>
+@interface AppDelegate : NSObject <NSApplicationDelegate, SearchLyricDelegate>
+@property (weak) IBOutlet SUUpdater *updater;
 
 @property (nonatomic, strong) Song *song;
 

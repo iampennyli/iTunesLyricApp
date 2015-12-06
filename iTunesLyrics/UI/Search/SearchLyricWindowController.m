@@ -19,6 +19,8 @@
 - (instancetype)initWithWindowNibName:(NSString *)windowNibName Song:(Song *)song
 {
     if (self = [super initWithWindowNibName: windowNibName]) {
+        // set preference window
+        self.window.appearance = [NSAppearance appearanceNamed: NSAppearanceNameVibrantDark];
         _song = song;
     }
     return self;
@@ -141,7 +143,11 @@
     NSInteger index = [tableView selectedRow];
     if (index != NSNotFound && index < _songs.count) {
         Song *song = _songs[index];
-        [[iTunesLyricHelper shareHelper] fetchLyricWithSong: song];
+        [[iTunesLyricHelper shareHelper] fetchLyricWithSong: song completeBlock:^(Song *final_song) {
+            if (self.searchLyricDelegate && [self.searchLyricDelegate respondsToSelector: @selector(searchLyricDidImportLyricToSong:)]) {
+                [self.searchLyricDelegate searchLyricDidImportLyricToSong: final_song];
+            }
+        }];
     }
 }
 

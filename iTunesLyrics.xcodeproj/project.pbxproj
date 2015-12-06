@@ -35,6 +35,10 @@
 		BC3CD95A1BD3B1B600FA3E86 /* StatusBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3CD9561BD3B1B600FA3E86 /* StatusBarView.m */; };
 		BC3CD95D1BD3B3DB00FA3E86 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = BC3CD95C1BD3B3DB00FA3E86 /* star.png */; };
 		BC3CD9611BD3D49500FA3E86 /* AppDelegate+Preference.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3CD9601BD3D49500FA3E86 /* AppDelegate+Preference.m */; };
+		BCD263C71C140E6B0047367B /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCD263C61C140E6B0047367B /* Sparkle.framework */; };
+		BCD263C91C140FED0047367B /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BCD263C61C140E6B0047367B /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BCD263CB1C14168F0047367B /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = BCD263CA1C14168E0047367B /* dsa_pub.pem */; };
+		BCD263CD1C141B530047367B /* pubilc_release_note.xml in Resources */ = {isa = PBXBuildFile; fileRef = BCD263CC1C141B530047367B /* pubilc_release_note.xml */; };
 		BCF3A72B1C12BEF1001F5BB3 /* SearchLyricWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF3A7291C12BEF1001F5BB3 /* SearchLyricWindowController.m */; };
 		BCF3A72C1C12BEF1001F5BB3 /* SearchLyricWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCF3A72A1C12BEF1001F5BB3 /* SearchLyricWindowController.xib */; };
 		BCF3A7361C12C78B001F5BB3 /* LyricDisplayWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF3A7351C12C78B001F5BB3 /* LyricDisplayWindow.m */; };
@@ -49,6 +53,19 @@
 			remoteInfo = iTunesLyrics;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		BCD263C81C140FCB0047367B /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				BCD263C91C140FED0047367B /* Sparkle.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		A8EC65221C1155430073A9F6 /* logo.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = logo.icns; sourceTree = "<group>"; };
@@ -104,6 +121,9 @@
 		BC3CD95C1BD3B3DB00FA3E86 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
 		BC3CD95F1BD3D49500FA3E86 /* AppDelegate+Preference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+Preference.h"; sourceTree = "<group>"; };
 		BC3CD9601BD3D49500FA3E86 /* AppDelegate+Preference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+Preference.m"; sourceTree = "<group>"; };
+		BCD263C61C140E6B0047367B /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
+		BCD263CA1C14168E0047367B /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
+		BCD263CC1C141B530047367B /* pubilc_release_note.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = pubilc_release_note.xml; sourceTree = "<group>"; };
 		BCF3A7281C12BEF1001F5BB3 /* SearchLyricWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchLyricWindowController.h; sourceTree = "<group>"; };
 		BCF3A7291C12BEF1001F5BB3 /* SearchLyricWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchLyricWindowController.m; sourceTree = "<group>"; };
 		BCF3A72A1C12BEF1001F5BB3 /* SearchLyricWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchLyricWindowController.xib; sourceTree = "<group>"; };
@@ -117,6 +137,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC3CD9181BD295F800FA3E86 /* libz.1.2.5.dylib in Frameworks */,
+				BCD263C71C140E6B0047367B /* Sparkle.framework in Frameworks */,
 				BC3CD9161BD295DC00FA3E86 /* CoreGraphics.framework in Frameworks */,
 				BC3CD9141BD295D600FA3E86 /* CFNetwork.framework in Frameworks */,
 				BC3CD9121BD295B600FA3E86 /* SystemConfiguration.framework in Frameworks */,
@@ -178,6 +199,8 @@
 		BC3CD8CC1BD1206400FA3E86 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				BCD263CC1C141B530047367B /* pubilc_release_note.xml */,
+				BCD263CA1C14168E0047367B /* dsa_pub.pem */,
 				BC3CD94E1BD3A98500FA3E86 /* Resource */,
 				BC3CD8CD1BD1206400FA3E86 /* Info.plist */,
 				BC3CD8D11BD1206400FA3E86 /* main.m */,
@@ -205,6 +228,7 @@
 		BC3CD9191BD2967900FA3E86 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				BCD263C61C140E6B0047367B /* Sparkle.framework */,
 				BC3CD91A1BD2967900FA3E86 /* ASIHTTPRequest */,
 			);
 			path = Vendors;
@@ -336,6 +360,7 @@
 				BC3CD8C51BD1206400FA3E86 /* Sources */,
 				BC3CD8C61BD1206400FA3E86 /* Frameworks */,
 				BC3CD8C71BD1206400FA3E86 /* Resources */,
+				BCD263C81C140FCB0047367B /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -407,10 +432,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC3CD9511BD3A98500FA3E86 /* transparent.png in Resources */,
+				BCD263CB1C14168F0047367B /* dsa_pub.pem in Resources */,
 				A8EC65231C1155430073A9F6 /* logo.icns in Resources */,
 				BC3CD95D1BD3B3DB00FA3E86 /* star.png in Resources */,
 				BC3CD9521BD3A98500FA3E86 /* transparent@2x.png in Resources */,
 				BC3CD8D41BD1206500FA3E86 /* Images.xcassets in Resources */,
+				BCD263CD1C141B530047367B /* pubilc_release_note.xml in Resources */,
 				BC3CD8D71BD1206500FA3E86 /* MainMenu.xib in Resources */,
 				BCF3A72C1C12BEF1001F5BB3 /* SearchLyricWindowController.xib in Resources */,
 			);
@@ -565,8 +592,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/iTunesLyrics",
+					"$(PROJECT_DIR)/iTunesLyrics/Vendors",
+				);
 				INFOPLIST_FILE = iTunesLyrics/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -576,8 +608,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/iTunesLyrics",
+					"$(PROJECT_DIR)/iTunesLyrics/Vendors",
+				);
 				INFOPLIST_FILE = iTunesLyrics/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

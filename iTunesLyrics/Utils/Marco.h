@@ -12,9 +12,6 @@
 #define FETCH_SONG_ID_URL                       @"http://music.163.com/api/search/pc"
 #define FETCH_SONG_LYRIC_URL                    @"http://music.163.com/api/song/lyric?os=osx&lv=-1&kv=-1&tv=-1"
 
-#define iTunesSongLyricFetchFinishedNotification    @"iTunesLyricFetchFinishedNotification"
-#define iTunesLyricListFetchFinishedNotification   @"iTunesLyricSearchFinishedNotification"
-
 #define kNotification_ShowWindow                @"kNotification_ShowWindow"
 #define kNotification_HideLyric                 @"kNotification_HideLyric"
 #define kNotificaiton_ColorChanged              @"kNotificaiton_ColorChanged"

@@ -61,35 +61,43 @@
     statusMenu.delegate = self;
     NSMenuItem *newItem = nil;
     
-    newItem = [[NSMenuItem allocWithZone: [NSMenu menuZone]] initWithTitle: @"Hide Lyric" action: @selector(hideLyric:) keyEquivalent: @""];
+    newItem = [[NSMenuItem allocWithZone: [NSMenu menuZone]] initWithTitle: @"隐藏歌词" action: @selector(hideLyric:) keyEquivalent: @""];
     newItem.tag = kStatusShowLyricTag;
 
     [newItem setTarget: self];
     [newItem setEnabled: YES];
     [statusMenu addItem: newItem];
     
-    newItem = [[NSMenuItem allocWithZone: [NSMenu menuZone]] initWithTitle: @"Search..." action: @selector(showPreference:) keyEquivalent: @""];
+    newItem = [[NSMenuItem allocWithZone: [NSMenu menuZone]] initWithTitle: @"搜索歌词..." action: @selector(showPreference:) keyEquivalent: @""];
     newItem.tag = kStatusSearchLyricTag;
     
     [newItem setTarget: self];
     [newItem setEnabled: YES];
     [statusMenu addItem: newItem];
     
-    newItem = [[NSMenuItem allocWithZone: [NSMenu menuZone]] initWithTitle: @"Preferences..." action: @selector(showPreference:) keyEquivalent: @""];
+    [statusMenu addItem: [NSMenuItem separatorItem]];
+    
+    newItem = [[NSMenuItem allocWithZone: [NSMenu menuZone]] initWithTitle: @"偏好设置..." action: @selector(showPreference:) keyEquivalent: @""];
     newItem.tag = kStatusPreferenceTag;
+    [newItem setTarget: self];
+    [newItem setEnabled: YES];
+    [statusMenu addItem: newItem];
+    
+    newItem = [[NSMenuItem allocWithZone: [NSMenu menuZone]] initWithTitle: @"检查更新..." action: @selector(showPreference:) keyEquivalent: @""];
+    newItem.tag = kStatusCheckUpdateTag;
     [newItem setTarget: self];
     [newItem setEnabled: YES];
     [statusMenu addItem: newItem];
     
     [statusMenu addItem: [NSMenuItem separatorItem]];
     
-    newItem = [[NSMenuItem allocWithZone: [NSMenu menuZone]] initWithTitle: @"Feedback..." action: @selector(showPreference:) keyEquivalent: @""];
+    newItem = [[NSMenuItem allocWithZone: [NSMenu menuZone]] initWithTitle: @"反馈..." action: @selector(showPreference:) keyEquivalent: @""];
     [newItem setTarget: self];
     [newItem setEnabled: YES];
     newItem.tag = kStatusFeedbackTag;
     [statusMenu addItem: newItem];
     
-    newItem = [[NSMenuItem allocWithZone: [NSMenu menuZone]] initWithTitle: @"About..." action: @selector(showPreference:) keyEquivalent: @""];
+    newItem = [[NSMenuItem allocWithZone: [NSMenu menuZone]] initWithTitle: @"关于..." action: @selector(showPreference:) keyEquivalent: @""];
     [newItem setTarget: self];
     [newItem setEnabled: YES];
     newItem.tag = kStatusAboutTag;
@@ -147,11 +155,11 @@
 - (void)hideLyric:(NSMenuItem *)item
 {
     BOOL needHide = NO;
-    if ([item.title isEqualToString: @"Hide Lyric"]) { // show lyric
-        item.title = @"Show Lyric";
+    if ([item.title isEqualToString: @"隐藏歌词"]) { // show lyric
+        item.title = @"显示歌词";
         needHide = YES;
     } else { // hide lyric
-        item.title = @"Hide Lyric";
+        item.title = @"隐藏歌词";
     }
     
     [[NSNotificationCenter defaultCenter] postNotificationName: kNotification_HideLyric object: @(needHide)];

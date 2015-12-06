@@ -15,7 +15,8 @@ typedef NS_ENUM(NSUInteger, StatusBarTag) {
     kStatusPreferenceTag,
     kStatusFeedbackTag,
     kStatusAboutTag,
-    kStatusQuitTag
+    kStatusQuitTag,
+    kStatusCheckUpdateTag
 };
 
 @interface StatusBarView : NSView <NSMenuDelegate, NSWindowDelegate> {
