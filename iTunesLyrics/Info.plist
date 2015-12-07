@@ -38,7 +38,7 @@
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
 	<key>SUFeedURL</key>
-	<string>https://github.com/iampennyli/iTunesLyricApp/blob/master/iTunesLyrics/pubilc_release_note.xml</string>
+	<string>https://www.baidu.com</string>
 	<key>SUPublicDSAKeyFile</key>
 	<string>dsa_pub.pem</string>
 </dict>

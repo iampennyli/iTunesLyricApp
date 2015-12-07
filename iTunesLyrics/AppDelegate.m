@@ -38,6 +38,8 @@
     // set preference window
     self.prefWindow.appearance = [NSAppearance appearanceNamed: NSAppearanceNameVibrantDark];
     
+    [self.updater checkForUpdatesInBackground];
+    
     // set itunes instance
     NSArray *apps = [[NSWorkspace sharedWorkspace] runningApplications];
     apps = [apps objectsAtIndexes:[apps indexesOfObjectsPassingTest:^BOOL(NSRunningApplication* obj, NSUInteger idx, BOOL *stop) {
@@ -159,9 +161,19 @@
     }
 }
 
+- (void)searchLyricWillBegin
+{
+    [self.lyricDict removeAllObjects];
+    [self.lyricWindow setLyric: @"正在导入中..."];
+}
+
 - (void)searchLyricDidImportLyricToSong:(Song *)song
 {
-    [self iTunesLyricFetchFinished: song];
+    if (song) {
+        [self iTunesLyricFetchFinished: song];
+    } else
+        [self.lyricWindow setLyric: @"导入失败"];
+    
 }
 
 // song playing timer call back

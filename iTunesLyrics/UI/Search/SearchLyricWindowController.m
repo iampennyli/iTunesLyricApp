@@ -21,7 +21,7 @@
     if (self = [super initWithWindowNibName: windowNibName]) {
         // set preference window
         self.window.appearance = [NSAppearance appearanceNamed: NSAppearanceNameVibrantDark];
-        _song = song;
+        self.song = song;
     }
     return self;
 }
@@ -111,17 +111,19 @@
     NSTableCellView *view = [tableView makeViewWithIdentifier: tableColumn.identifier owner: self];
     NSString *identifier = tableColumn.identifier;
     NSString *value = @"";
-    if ([identifier isEqualToString: @"name"]) {
+    
+    if ([identifier isEqualToString: @"duration"]) {
+        value = [NSString stringWithFormat:@"%.2ld:%.2ld",song.duration / 60,song.duration % 60];;
+    } if ([identifier isEqualToString: @"name"]) {
         value = song.name;
-    } else if ([identifier isEqualToString: @"singer"]) {
-        value = song.artist;
+    } else if ([identifier isEqualToString: @"score"]) {
+        value = [NSString stringWithFormat: @"%ld", (long)song.score];
     } else if ([identifier isEqualToString: @"album"]) {
         value = song.album;
-    } else if ([identifier isEqualToString: @"duration"]) {
-        value = [NSString stringWithFormat:@"%.2ld:%.2ld",song.duration / 60,song.duration % 60];;
-    } else if ([identifier isEqualToString: @"hot"]) {
-        value = [NSString stringWithFormat: @"%ld", song.score];
+    } else if ([identifier isEqualToString: @"artist"]) {
+        value = song.artist;
     }
+
     view.textField.stringValue = value;
     
     return view;
@@ -142,6 +144,9 @@
 {
     NSInteger index = [tableView selectedRow];
     if (index != NSNotFound && index < _songs.count) {
+        
+        [self.searchLyricDelegate searchLyricWillBegin];
+        
         Song *song = _songs[index];
         [[iTunesLyricHelper shareHelper] fetchLyricWithSong: song completeBlock:^(Song *final_song) {
             if (self.searchLyricDelegate && [self.searchLyricDelegate respondsToSelector: @selector(searchLyricDidImportLyricToSong:)]) {

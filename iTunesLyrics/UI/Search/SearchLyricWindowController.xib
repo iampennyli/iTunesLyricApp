@@ -183,7 +183,7 @@
                                                 </tableCellView>
                                             </prototypeCellViews>
                                         </tableColumn>
-                                        <tableColumn identifier="singer" width="100" minWidth="100" maxWidth="2000" id="2I1-4K-N3N">
+                                        <tableColumn identifier="artist" width="100" minWidth="100" maxWidth="2000" id="2I1-4K-N3N">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="歌手">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -296,7 +296,7 @@
                                                 </tableCellView>
                                             </prototypeCellViews>
                                         </tableColumn>
-                                        <tableColumn identifier="hot" width="100" minWidth="100" maxWidth="100" id="3CU-j6-ILr">
+                                        <tableColumn identifier="score" width="100" minWidth="100" maxWidth="100" id="3CU-j6-ILr">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="热度">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>

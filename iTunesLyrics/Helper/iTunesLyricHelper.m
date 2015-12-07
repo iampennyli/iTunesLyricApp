@@ -164,6 +164,7 @@
         if (block) {
             block(referenceSongs);
         }
+        [helper.requestsDict removeObjectForKey: key];
         
     }];
     
@@ -204,6 +205,8 @@
             NSLog(@"_fetchLyricWithSong err code %ld, reason: %@", [obj[@"code"] integerValue], obj);
             block(nil);
         }
+        
+        [helper.requestsDict removeObjectForKey: key];
         
     };
     [request setFailedBlock:^{

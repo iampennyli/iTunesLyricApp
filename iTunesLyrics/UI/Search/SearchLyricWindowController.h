@@ -11,6 +11,7 @@
 
 @protocol SearchLyricDelegate <NSObject>
 
+- (void)searchLyricWillBegin;
 - (void)searchLyricDidImportLyricToSong:(Song *)song;
 
 @end
