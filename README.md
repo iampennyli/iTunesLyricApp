@@ -16,17 +16,17 @@ iTunes歌词插件App 1.0
 
 ###意见反馈
 
-[我的博客](penny.li)
+[iTunesLyricApp](http://penny.li/2015/12/07/iTunesLyricApp/)
 
 
 ###截图
-![4](Snapshoot/4.png)
+![4](http://ww1.sinaimg.cn/large/0060lm7Tgw1eyrfy2c3v7j30zk0m816t.jpg)
 
-![1](Snapshoot/1.png)
+![1](http://ww4.sinaimg.cn/large/0060lm7Tgw1eyrfxmiaooj30jo0be42n.jpg)
 
-![1](Snapshoot/2.png)
+![1](http://ww2.sinaimg.cn/large/0060lm7Tgw1eyrfxasawwj30im0d1dj9.jpg)
 
-![1](Snapshoot/3.png)
+![1](http://ww4.sinaimg.cn/large/0060lm7Tgw1eyrfxgeq1wj30n20giag0.jpg)
 
 
 

@@ -83,11 +83,11 @@
     [newItem setEnabled: YES];
     [statusMenu addItem: newItem];
     
-    newItem = [[NSMenuItem allocWithZone: [NSMenu menuZone]] initWithTitle: @"检查更新..." action: @selector(showPreference:) keyEquivalent: @""];
-    newItem.tag = kStatusCheckUpdateTag;
-    [newItem setTarget: self];
-    [newItem setEnabled: YES];
-    [statusMenu addItem: newItem];
+//    newItem = [[NSMenuItem allocWithZone: [NSMenu menuZone]] initWithTitle: @"检查更新..." action: @selector(showPreference:) keyEquivalent: @""];
+//    newItem.tag = kStatusCheckUpdateTag;
+//    [newItem setTarget: self];
+//    [newItem setEnabled: YES];
+//    [statusMenu addItem: newItem];
     
     [statusMenu addItem: [NSMenuItem separatorItem]];
     

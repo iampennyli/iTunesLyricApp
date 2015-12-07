@@ -35,6 +35,7 @@
 		BC3CD95A1BD3B1B600FA3E86 /* StatusBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3CD9561BD3B1B600FA3E86 /* StatusBarView.m */; };
 		BC3CD95D1BD3B3DB00FA3E86 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = BC3CD95C1BD3B3DB00FA3E86 /* star.png */; };
 		BC3CD9611BD3D49500FA3E86 /* AppDelegate+Preference.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3CD9601BD3D49500FA3E86 /* AppDelegate+Preference.m */; };
+		BC5772A31C15D05700FF41E1 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = BC5772A21C15D05700FF41E1 /* Credits.rtf */; };
 		BCD263C71C140E6B0047367B /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCD263C61C140E6B0047367B /* Sparkle.framework */; };
 		BCD263C91C140FED0047367B /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BCD263C61C140E6B0047367B /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BCD263CB1C14168F0047367B /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = BCD263CA1C14168E0047367B /* dsa_pub.pem */; };
@@ -121,6 +122,7 @@
 		BC3CD95C1BD3B3DB00FA3E86 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
 		BC3CD95F1BD3D49500FA3E86 /* AppDelegate+Preference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+Preference.h"; sourceTree = "<group>"; };
 		BC3CD9601BD3D49500FA3E86 /* AppDelegate+Preference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+Preference.m"; sourceTree = "<group>"; };
+		BC5772A21C15D05700FF41E1 /* Credits.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
 		BCD263C61C140E6B0047367B /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		BCD263CA1C14168E0047367B /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		BCD263CC1C141B530047367B /* pubilc_release_note.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = pubilc_release_note.xml; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 		BC3CD8CC1BD1206400FA3E86 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				BC5772A21C15D05700FF41E1 /* Credits.rtf */,
 				BCD263CC1C141B530047367B /* pubilc_release_note.xml */,
 				BCD263CA1C14168E0047367B /* dsa_pub.pem */,
 				BC3CD94E1BD3A98500FA3E86 /* Resource */,
@@ -436,6 +439,7 @@
 				A8EC65231C1155430073A9F6 /* logo.icns in Resources */,
 				BC3CD95D1BD3B3DB00FA3E86 /* star.png in Resources */,
 				BC3CD9521BD3A98500FA3E86 /* transparent@2x.png in Resources */,
+				BC5772A31C15D05700FF41E1 /* Credits.rtf in Resources */,
 				BC3CD8D41BD1206500FA3E86 /* Images.xcassets in Resources */,
 				BCD263CD1C141B530047367B /* pubilc_release_note.xml in Resources */,
 				BC3CD8D71BD1206500FA3E86 /* MainMenu.xib in Resources */,

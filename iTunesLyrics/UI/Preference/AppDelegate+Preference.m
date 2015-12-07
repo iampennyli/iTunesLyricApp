@@ -49,11 +49,11 @@
         }
             break;
         case kStatusFeedbackTag: {
-            
+            [[NSWorkspace sharedWorkspace] openURL: [NSURL URLWithString: @"http://penny.li/2015/12/07/iTunesLyricApp/"]];
         }
             break;
         case kStatusAboutTag: {
-            
+            [NSApp orderFrontStandardAboutPanel: nil];
         }
             break;
         case kStatusCheckUpdateTag: {

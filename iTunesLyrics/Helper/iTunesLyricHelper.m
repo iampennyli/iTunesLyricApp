@@ -83,9 +83,9 @@
             [referenceSongs addObject: song];
         }
         
-        // 如果歌曲名字和歌曲时长都一致则认为是同一首歌
+        // 如果歌曲名字和歌手名都一致则认为是同一首歌
         for (Song *fetchSong in referenceSongs) {
-            if (fetchSong.duration == song.duration && [fetchSong.name isEqualToString: song.name]) {
+            if ([fetchSong.name isEqualToString: song.name] && [fetchSong.artist isEqualToString: song.artist]) {
                 song.lyricId = fetchSong.lyricId;
                 NSString *timeStr = [NSString stringWithFormat:@"%.2ld:%.2ld",song.duration / 60, song.duration % 60];
                 NSLog(@"%@-%@,找到正确的歌曲信息, 时间一致，id=%ld,duration=%@", song.name, song.artist,(long)song.lyricId, timeStr);
