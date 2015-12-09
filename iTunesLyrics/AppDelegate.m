@@ -148,12 +148,16 @@
     if (song.lyrics) {
         self.song.lyrics = song.lyrics;
         self.song.lyricId = song.lyricId;
+
         if (![song.name isEqualToString: self.song.name]) {
+            self.song.name = song.name;
+            self.song.artist = song.artist;
             [[iTunesLyricHelper shareHelper] saveSongLyricToLocal: self.song];
         }
     }
     
     if (song.lyrics) {
+         [self.lyricWindow setLyric: [NSString stringWithFormat: @"%@ - %@", self.song.name, self.song.artist]];
         [self analyzeLyric: song.lyrics];
     } else {
         [self.lyricDict removeAllObjects];
